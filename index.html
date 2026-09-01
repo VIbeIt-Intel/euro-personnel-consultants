@@ -8,24 +8,33 @@
       name="description"
       content="South Africa's oldest H-2A consultancy. 5 000+ placements and a 98% annual return. Personal interviews. Vacancies on Facebook first."
     />
+    <meta name="theme-color" content="#7ac3e6" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=classy1" />
+    <link rel="preload" as="image" href="assets/logo.webp" type="image/webp" />
+    <link rel="preload" as="image" href="assets/placement-globe.webp" type="image/webp" />
+    <link rel="stylesheet" href="styles.css?v=qa1" />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
   </head>
   <body>
     <header class="top">
       <div class="top-bar">
         <a class="brand" href="#top">
-          <img
-            src="assets/logo.png"
-            alt="Euro Personnel Consultants logo, established 1999"
-            width="360"
-            height="156"
-          />
+        <img
+          src="assets/logo.webp"
+          alt="Euro Personnel Consultants logo, established 1999"
+          width="760"
+          height="329"
+          fetchpriority="high"
+          decoding="async"
+        />
         </a>
         <button
           class="menu-btn"
@@ -73,10 +82,12 @@
           <div class="hero-visual">
             <img
               class="globe-photo"
-              src="assets/placement-globe.png?v=4"
+              src="assets/placement-globe.webp"
               alt="Globe showing placement routes from South Africa to the United States and Ireland"
               width="569"
               height="610"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -173,8 +184,8 @@
         <ul class="cards cards--two">
           <li>
             <p class="flag-row" aria-hidden="true">
-              <img class="flag" src="assets/flag-us.png?v=2" alt="United States" width="88" height="58" />
-              <img class="flag" src="assets/flag-ie.png?v=2" alt="Ireland" width="88" height="58" />
+              <img class="flag" src="assets/flag-us.webp" alt="" width="176" height="92" loading="lazy" decoding="async" />
+              <img class="flag" src="assets/flag-ie.webp" alt="" width="176" height="117" loading="lazy" decoding="async" />
             </p>
             <h3>U.S. &amp; Irish agricultural employers</h3>
             <p>
@@ -186,7 +197,7 @@
           </li>
           <li>
             <p class="flag-row" aria-hidden="true">
-              <img class="flag" src="assets/flag-za.png?v=2" alt="South Africa" width="88" height="58" />
+              <img class="flag" src="assets/flag-za.webp" alt="" width="173" height="120" loading="lazy" decoding="async" />
             </p>
             <h3>South African agricultural workers</h3>
             <p>
@@ -355,21 +366,22 @@
             Open positions are posted on our Facebook page first. That is where we
             advertise.
           </p>
-          <a
-            class="cta cta-facebook"
-            href="https://www.facebook.com/profile.php?id=100093904718721"
-          >Facebook — Euro Personnel Consultants</a>
-          <p class="tiktok-note">
-            We also post occasionally on TikTok
-            <a href="https://www.tiktok.com/@europersonnel">@europersonnel</a>.
-          </p>
+            <a
+              class="cta cta-facebook"
+              href="https://www.facebook.com/profile.php?id=100093904718721"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Facebook — Euro Personnel Consultants</a>
+            <p class="tiktok-note">
+              We also post occasionally on TikTok
+              <a href="https://www.tiktok.com/@europersonnel" target="_blank" rel="noopener noreferrer">@europersonnel</a>.
+            </p>
         </div>
         <div class="fb-preview" id="fb-preview">
           <iframe
             id="fb-page"
             title="Euro Personnel Consultants Facebook page"
             data-href="https://www.facebook.com/profile.php?id=100093904718721"
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100093904718721&amp;tabs=timeline&amp;width=340&amp;height=520&amp;small_header=false&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false"
             width="340"
             height="520"
             loading="lazy"
@@ -393,7 +405,7 @@
             </p>
             <p><a href="tel:+27833215034">083 321 5034</a></p>
             <p>
-              <a href="https://www.facebook.com/profile.php?id=100093904718721">Facebook — Euro Personnel Consultants</a>
+              <a href="https://www.facebook.com/profile.php?id=100093904718721" target="_blank" rel="noopener noreferrer">Facebook — Euro Personnel Consultants</a>
             </p>
           </div>
           <div class="contact-block">
@@ -453,6 +465,7 @@
           if (window.matchMedia("(min-width: 800px)").matches) setOpen(false);
         });
       })();
+      if (!location.hash) window.scrollTo(0, 0);
       (function () {
         var box = document.getElementById("fb-preview");
         var frame = document.getElementById("fb-page");
@@ -460,6 +473,7 @@
         var pageHref = frame.getAttribute("data-href");
         var fitted = "";
         var timer;
+        var watching = false;
 
         function pluginSrc(width, height) {
           return (
@@ -492,10 +506,28 @@
           timer = window.setTimeout(fitFacebookPage, 120);
         }
 
-        fitFacebookPage();
-        window.addEventListener("resize", scheduleFit);
-        if ("ResizeObserver" in window) {
-          new ResizeObserver(scheduleFit).observe(box);
+        function startWatching() {
+          if (watching) return;
+          watching = true;
+          fitFacebookPage();
+          window.addEventListener("resize", scheduleFit);
+          if ("ResizeObserver" in window) {
+            new ResizeObserver(scheduleFit).observe(box);
+          }
+        }
+
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              if (!entries[0] || !entries[0].isIntersecting) return;
+              io.disconnect();
+              startWatching();
+            },
+            { rootMargin: "280px 0px" }
+          );
+          io.observe(box);
+        } else {
+          startWatching();
         }
       })();
     </script>
