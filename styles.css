@@ -20,7 +20,10 @@ html {
 body {
   font-family: Outfit, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 92% -8%, rgb(122 195 230 / 55%), transparent 42%),
+    radial-gradient(circle at 0% 28%, rgb(197 201 212 / 45%), transparent 36%),
+    var(--paper);
   line-height: 1.55;
 }
 
@@ -149,8 +152,129 @@ section {
 
 .hero {
   border-top: 0;
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
+  margin-inline: calc(50% - 50vw);
+  padding: 1.6rem max(1rem, calc(50vw - 490px)) 2.2rem;
+  background:
+    linear-gradient(140deg, rgb(122 195 230 / 38%), rgb(238 246 250 / 20%) 48%, rgb(197 201 212 / 28%));
+}
+
+.hero-grid {
+  display: grid;
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.hero-visual {
+  text-align: center;
+}
+
+.globe {
+  width: min(220px, 68%);
+  height: auto;
+  margin: 0 auto 0.85rem;
+  filter: drop-shadow(0 10px 18px rgb(26 42 58 / 16%));
+}
+
+.route-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.55rem;
+}
+
+.route {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem 1rem;
+  list-style: none;
+  padding: 0.85rem 0.9rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(26 42 58 / 8%);
+}
+
+.route li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.route-arrow {
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.flag {
+  display: inline-block;
+  width: 2.55rem;
+  height: 1.7rem;
+  border-radius: 0.22rem;
+  box-shadow: 0 0 0 1px rgb(26 42 58 / 14%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.flag-za {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 24'><rect width='36' height='24' fill='%23007749'/><rect width='36' height='8' fill='%23e03c31'/><rect y='16' width='36' height='8' fill='%23001489'/><polygon points='0,0 16,12 0,24' fill='%23000'/><polygon points='0,3.2 12,12 0,20.8' fill='%23ffb81c'/><polygon points='0,6.2 8.5,12 0,17.8' fill='%23fff'/><polygon points='0,8 6,12 0,16' fill='%23e03c31'/></svg>");
+}
+
+.flag-us {
+  background:
+    linear-gradient(#3c3b6e, #3c3b6e) 0 0 / 42% 54% no-repeat,
+    repeating-linear-gradient(#b22234 0 7.69%, #fff 7.69% 15.38%);
+}
+
+.flag-ie {
+  background: linear-gradient(to right, #169b62 0 33.34%, #fff 33.34% 66.66%, #ff883e 66.66%);
+}
+
+.flag-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.7rem;
+}
+
+.facebook-flags {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.85rem;
+  background: rgb(122 195 230 / 32%);
+}
+
+.icon svg,
+.icon-sm svg {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+}
+
+.icon-sm {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: 0;
+  border-radius: 0.7rem;
+  background: rgb(122 195 230 / 32%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .eyebrow {
@@ -434,6 +558,11 @@ footer {
 @media (min-width: 800px) {
   .top nav {
     display: flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
   }
 
   .cards:not(.cards--two) {
