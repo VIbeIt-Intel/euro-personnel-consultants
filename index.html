@@ -17,6 +17,31 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="flag-za" viewBox="0 0 90 60">
+        <rect width="90" height="30" fill="#DE3831" />
+        <rect y="30" width="90" height="30" fill="#002395" />
+        <path fill="#FFFFFF" d="M0 20h90v20H0zM0 0l42 30L0 60z" />
+        <path fill="#FFB81C" d="M0 25h90v10H0zM0 10l28 20L0 50z" />
+        <path fill="#007A4D" d="M0 27h90v6H0zM0 14l22 16L0 46z" />
+        <path fill="#000000" d="M0 15l18 15L0 45z" />
+      </symbol>
+      <symbol id="flag-us" viewBox="0 0 19 10">
+        <rect width="19" height="10" fill="#B22234" />
+        <rect y="0.77" width="19" height="0.77" fill="#fff" />
+        <rect y="2.31" width="19" height="0.77" fill="#fff" />
+        <rect y="3.85" width="19" height="0.77" fill="#fff" />
+        <rect y="5.38" width="19" height="0.77" fill="#fff" />
+        <rect y="6.92" width="19" height="0.77" fill="#fff" />
+        <rect y="8.46" width="19" height="0.77" fill="#fff" />
+        <rect width="7.6" height="5.38" fill="#3C3B6E" />
+      </symbol>
+      <symbol id="flag-ie" viewBox="0 0 6 3">
+        <rect width="2" height="3" fill="#169B62" />
+        <rect x="2" width="2" height="3" fill="#fff" />
+        <rect x="4" width="2" height="3" fill="#FF883E" />
+      </symbol>
+    </svg>
     <header class="top">
       <a class="brand" href="#top">
         <img
@@ -52,39 +77,81 @@
               <a class="cta-secondary" href="tel:+27833215034">Call</a>
             </div>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <svg class="globe" viewBox="0 0 220 220" role="img">
+          <div class="hero-visual">
+            <svg class="globe" viewBox="0 0 400 400" role="img" aria-label="Flight paths from South Africa to the United States and Ireland">
               <defs>
-                <radialGradient id="gfill" cx="35%" cy="30%" r="70%">
-                  <stop offset="0%" stop-color="#b9e4f5" />
-                  <stop offset="100%" stop-color="#7ac3e6" />
+                <radialGradient id="ocean" cx="32%" cy="28%" r="75%">
+                  <stop offset="0%" stop-color="#2f6f8d" />
+                  <stop offset="55%" stop-color="#163a50" />
+                  <stop offset="100%" stop-color="#0b1c2b" />
                 </radialGradient>
+                <linearGradient id="trail" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#7ac3e6" />
+                  <stop offset="100%" stop-color="#ffffff" />
+                </linearGradient>
+                <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="b" />
+                  <feMerge>
+                    <feMergeNode in="b" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <clipPath id="disc">
+                  <circle cx="200" cy="200" r="172" />
+                </clipPath>
               </defs>
-              <circle cx="110" cy="110" r="96" fill="url(#gfill)" />
-              <circle cx="110" cy="110" r="96" fill="none" stroke="#1a2a3a" stroke-width="3" opacity="0.18" />
-              <ellipse cx="110" cy="110" rx="42" ry="96" fill="none" stroke="#fff" stroke-width="2" opacity="0.55" />
-              <ellipse cx="110" cy="110" rx="96" ry="42" fill="none" stroke="#fff" stroke-width="2" opacity="0.55" />
-              <path d="M110 14v192M14 110h192" fill="none" stroke="#fff" stroke-width="2" opacity="0.55" />
-              <path d="M48 58c22 8 48 28 62 52 10 18 38 40 68 46" fill="none" stroke="#1a2a3a" stroke-width="7" stroke-linecap="round" opacity="0.28" />
-              <path d="M22 150c40-8 70 4 88 18 22 16 48 22 78 10" fill="none" stroke="#1a2a3a" stroke-width="6" stroke-linecap="round" opacity="0.22" />
+              <circle cx="200" cy="200" r="186" fill="none" stroke="#7ac3e6" stroke-width="6" opacity="0.35" />
+              <circle cx="200" cy="200" r="178" fill="none" stroke="#c5c9d4" stroke-width="2" opacity="0.7" />
+              <circle cx="200" cy="200" r="172" fill="url(#ocean)" />
+              <g clip-path="url(#disc)" fill="none" stroke="#7ac3e6" stroke-width="1.2" opacity="0.22">
+                <ellipse cx="200" cy="200" rx="70" ry="172" />
+                <ellipse cx="200" cy="200" rx="130" ry="172" />
+                <ellipse cx="200" cy="200" rx="172" ry="70" />
+                <ellipse cx="200" cy="200" rx="172" ry="130" />
+                <path d="M28 200h344M200 28v344" />
+              </g>
+              <g clip-path="url(#disc)" fill="#8fa0b3">
+                <path d="M62 92c22-18 48-14 62 6 10 16 8 38-2 54-8 14-22 28-20 46 2 14-10 28-24 26-16-2-22-22-18-36 4-16-4-28-12-40-8-14-4-38 14-56z" />
+                <path d="M198 86c18-8 36-2 44 14 6 12 4 22-4 30-10 8-8 20 2 26 8 6 6 18-4 22-14 6-30-2-38-16-8-16-16-28-14-44 2-14 6-26 14-32z" />
+                <path d="M208 118c16-4 34 10 38 28 6 22 2 44-4 64-4 16 4 34-6 48-12 16-32 22-46 12-12-8-14-26-8-38 8-16 4-32-2-46-6-16 4-32 10-44 6-12 10-22 18-24z" />
+                <path d="M168 78c8-4 16 0 18 8 2 8-4 12-10 12-8 0-12-6-8-20z" />
+              </g>
+              <g filter="url(#glow)" fill="none" stroke="url(#trail)" stroke-width="3.5" stroke-linecap="round">
+                <path d="M218 268 C 120 250, 70 190, 92 148" />
+                <path d="M218 268 C 170 210, 158 130, 176 108" />
+              </g>
+              <g fill="#7ac3e6" stroke="#eef6fa" stroke-width="2">
+                <circle cx="218" cy="268" r="6" />
+                <circle cx="92" cy="148" r="6" />
+                <circle cx="176" cy="108" r="6" />
+              </g>
+              <g fill="#eef6fa">
+                <path transform="translate(118 188) rotate(-28)" d="M0 0 l16 5-16 5 3-5z" />
+                <path transform="translate(168 168) rotate(-72)" d="M0 0 l16 5-16 5 3-5z" />
+              </g>
+              <g fill="#eef6fa" font-family="Outfit, sans-serif" font-size="13" font-weight="700">
+                <text x="230" y="286">South Africa</text>
+                <text x="28" y="138">United States</text>
+                <text x="188" y="98">Ireland</text>
+              </g>
             </svg>
             <p class="route-label">Seasonal agricultural placement</p>
             <ul class="route">
               <li>
-                <span class="flag flag-za" title="South Africa"></span>
+                <svg class="flag"><use href="#flag-za" /></svg>
                 South Africa
               </li>
-              <li class="route-arrow">
-                <svg viewBox="0 0 48 24" width="48" height="24">
-                  <path d="M2 12h36M30 4l14 8-14 8" fill="none" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              <li class="route-arrow" aria-hidden="true">
+                <svg viewBox="0 0 48 16">
+                  <path d="M2 8h36M30 2l14 6-14 6" fill="none" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </li>
               <li>
-                <span class="flag flag-us" title="United States"></span>
+                <svg class="flag"><use href="#flag-us" /></svg>
                 United States
               </li>
               <li>
-                <span class="flag flag-ie" title="Ireland"></span>
+                <svg class="flag"><use href="#flag-ie" /></svg>
                 Ireland
               </li>
             </ul>
@@ -151,8 +218,8 @@
         <ul class="cards cards--two">
           <li>
             <p class="flag-row" aria-hidden="true">
-              <span class="flag flag-us"></span>
-              <span class="flag flag-ie"></span>
+              <svg class="flag"><use href="#flag-us" /></svg>
+              <svg class="flag"><use href="#flag-ie" /></svg>
             </p>
             <h3>U.S. &amp; Irish agricultural employers</h3>
             <p>
@@ -164,7 +231,7 @@
           </li>
           <li>
             <p class="flag-row" aria-hidden="true">
-              <span class="flag flag-za"></span>
+              <svg class="flag"><use href="#flag-za" /></svg>
             </p>
             <h3>South African agricultural workers</h3>
             <p>
@@ -265,10 +332,10 @@
           advertise.
         </p>
         <p class="flag-row facebook-flags" aria-hidden="true">
-          <span class="flag flag-za"></span>
+          <svg class="flag"><use href="#flag-za" /></svg>
           <span class="route-arrow">→</span>
-          <span class="flag flag-us"></span>
-          <span class="flag flag-ie"></span>
+          <svg class="flag"><use href="#flag-us" /></svg>
+          <svg class="flag"><use href="#flag-ie" /></svg>
         </p>
         <a
           class="cta cta-facebook"
