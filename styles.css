@@ -776,7 +776,8 @@ footer {
     text-align: center;
   }
 
-  .facebook h2 {
+  .facebook h2,
+  .fb-heading {
     font-size: 1.28rem;
     gap: 0.55rem;
   }
