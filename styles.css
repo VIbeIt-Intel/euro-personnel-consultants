@@ -49,8 +49,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.55rem 1.1rem;
+  gap: 1.5rem;
+  padding: 0.85rem 1.4rem;
   background: rgb(238 246 250 / 94%);
   backdrop-filter: blur(10px);
   border-bottom: 3px solid var(--c1);
@@ -59,35 +59,40 @@ a:hover {
 .brand {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   color: var(--ink);
-  font-weight: 800;
   text-decoration: none;
 }
 
 .brand img {
   display: block;
   width: auto;
-  height: 4.4rem;
-  max-width: min(280px, 62vw);
+  height: 5.6rem;
+  max-width: min(340px, 72vw);
   object-fit: contain;
-  background: transparent;
+  background: none;
 }
 
 .top nav {
   display: none;
-  gap: 1.15rem;
+  margin-left: auto;
+  gap: 2.15rem;
   font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
 }
 
 .top nav a {
-  color: var(--ink);
+  color: rgb(26 42 58 / 62%);
   text-decoration: none;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
 }
 
 .top nav a:hover {
   color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--c1);
+  text-decoration: none;
+  border-bottom-color: var(--c1);
 }
 
 .cta {
@@ -374,13 +379,13 @@ footer {
 
 @media (max-width: 639px) {
   .top {
-    padding: 0.45rem 0.75rem;
+    padding: 0.7rem 0.9rem;
     gap: 0.5rem;
   }
 
   .brand img {
-    height: 3.4rem;
-    max-width: min(210px, 58vw);
+    height: 4.4rem;
+    max-width: min(260px, 88vw);
   }
 
   .hero-actions .cta,
@@ -421,8 +426,8 @@ footer {
   }
 
   .brand img {
-    height: 5rem;
-    max-width: 320px;
+    height: 6.4rem;
+    max-width: 380px;
   }
 }
 
