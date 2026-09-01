@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=globe5" />
+    <link rel="stylesheet" href="styles.css?v=fb5" />
   </head>
   <body>
     <header class="top">
@@ -361,13 +361,16 @@
             <a href="https://www.tiktok.com/@europersonnel">@europersonnel</a>.
           </p>
         </div>
-        <div class="fb-preview">
+        <div class="fb-preview" id="fb-preview">
           <iframe
+            id="fb-page"
             title="Euro Personnel Consultants Facebook page"
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100093904718721&amp;tabs=timeline&amp;width=500&amp;height=520&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false"
-            width="500"
+            data-href="https://www.facebook.com/profile.php?id=100093904718721"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100093904718721&amp;tabs=timeline&amp;width=340&amp;height=520&amp;small_header=false&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false"
+            width="340"
             height="520"
             loading="lazy"
+            scrolling="no"
             allow="encrypted-media; picture-in-picture"
           ></iframe>
         </div>
@@ -446,6 +449,51 @@
         window.addEventListener("resize", function () {
           if (window.matchMedia("(min-width: 800px)").matches) setOpen(false);
         });
+      })();
+      (function () {
+        var box = document.getElementById("fb-preview");
+        var frame = document.getElementById("fb-page");
+        if (!box || !frame) return;
+        var pageHref = frame.getAttribute("data-href");
+        var fitted = "";
+        var timer;
+
+        function pluginSrc(width, height) {
+          return (
+            "https://www.facebook.com/plugins/page.php?href=" +
+            encodeURIComponent(pageHref) +
+            "&tabs=timeline&width=" +
+            width +
+            "&height=" +
+            height +
+            "&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false"
+          );
+        }
+
+        function fitFacebookPage() {
+          var width = Math.round(box.clientWidth);
+          if (!width) return;
+          width = Math.max(180, Math.min(500, width));
+          var height = Math.round(parseFloat(window.getComputedStyle(frame).height)) || 520;
+          height = Math.max(70, height);
+          var key = width + "x" + height;
+          if (fitted === key) return;
+          fitted = key;
+          frame.setAttribute("width", String(width));
+          frame.setAttribute("height", String(height));
+          frame.src = pluginSrc(width, height);
+        }
+
+        function scheduleFit() {
+          window.clearTimeout(timer);
+          timer = window.setTimeout(fitFacebookPage, 120);
+        }
+
+        fitFacebookPage();
+        window.addEventListener("resize", scheduleFit);
+        if ("ResizeObserver" in window) {
+          new ResizeObserver(scheduleFit).observe(box);
+        }
       })();
     </script>
   </body>
