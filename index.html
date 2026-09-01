@@ -14,19 +14,36 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=steps2" />
+    <link rel="stylesheet" href="styles.css?v=mob2" />
   </head>
   <body>
     <header class="top">
-      <a class="brand" href="#top">
-        <img
-          src="assets/logo.png"
-          alt="Euro Personnel Consultants logo, established 1999"
-          width="360"
-          height="156"
-        />
-      </a>
-      <nav>
+      <div class="top-bar">
+        <a class="brand" href="#top">
+          <img
+            src="assets/logo.png"
+            alt="Euro Personnel Consultants logo, established 1999"
+            width="360"
+            height="156"
+          />
+        </a>
+        <button
+          class="menu-btn"
+          id="menu-btn"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="menu-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          Menu
+        </button>
+      </div>
+      <nav id="site-nav">
         <a href="#services">Services</a>
         <a href="#who-we-help">Who we help</a>
         <a href="#process">Process</a>
@@ -35,6 +52,7 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
 
     <main id="top">
       <section class="hero">
@@ -415,5 +433,40 @@
         Africa
       </p>
     </footer>
+    <script>
+      (function () {
+        var btn = document.getElementById("menu-btn");
+        var nav = document.getElementById("site-nav");
+        var overlay = document.getElementById("nav-overlay");
+        if (!btn || !nav) return;
+
+        function setOpen(open) {
+          document.body.classList.toggle("nav-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          if (overlay) overlay.hidden = !open;
+        }
+
+        btn.addEventListener("click", function () {
+          setOpen(!document.body.classList.contains("nav-open"));
+        });
+        if (overlay) {
+          overlay.addEventListener("click", function () {
+            setOpen(false);
+          });
+        }
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            setOpen(false);
+          });
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") setOpen(false);
+        });
+        window.addEventListener("resize", function () {
+          if (window.matchMedia("(min-width: 800px)").matches) setOpen(false);
+        });
+      })();
+    </script>
   </body>
 </html>
