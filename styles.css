@@ -212,7 +212,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.9rem;
+  height: 3.1rem;
   color: var(--ink);
   font-size: 1.2rem;
   font-weight: 800;
@@ -220,18 +220,17 @@ section {
 
 .route-arrow svg {
   display: block;
-  width: 2.1rem;
-  height: 0.85rem;
+  width: 2.4rem;
+  height: 1rem;
 }
 
 .flag {
   display: block;
-  width: 2.85rem;
-  height: 1.9rem;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0.22rem;
-  box-shadow: 0 0 0 1px rgb(26 42 58 / 14%);
+  width: 4.4rem;
+  height: 3.1rem;
+  object-fit: fill;
+  border-radius: 0.28rem;
+  box-shadow: 0 0 0 1px rgb(26 42 58 / 16%);
 }
 
 .flag-row {
