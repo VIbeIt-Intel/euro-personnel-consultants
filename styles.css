@@ -240,11 +240,6 @@ section {
   margin-bottom: 0.7rem;
 }
 
-.facebook-flags {
-  margin: 0 0 1.1rem;
-  font-size: 1.2rem;
-}
-
 .icon {
   display: block;
   width: 4.6rem;
@@ -402,9 +397,9 @@ h3 {
 
 .process-heading {
   margin: 1.75rem 0 1rem;
-  font-size: 0.92rem;
+  font-size: 1.35rem;
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -437,13 +432,21 @@ h3 {
 
 .step-badge {
   position: absolute;
-  right: 0.7rem;
-  top: 0.45rem;
-  font-size: 2.1rem;
+  right: 1.05rem;
+  top: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  padding: 0.12rem 0.35rem;
+  border: 1.5px solid #1a2a3a;
+  border-radius: 0.4rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  color: rgb(122 195 230 / 45%);
-  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.2;
 }
 
 .step-icon {
@@ -530,10 +533,42 @@ h3 {
   border-top: 0;
 }
 
+.fb-grid {
+  display: grid;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.fb-mark {
+  margin-bottom: 0.75rem;
+}
+
+.fb-mark svg {
+  display: block;
+}
+
 .cta-facebook {
   min-height: 3.1rem;
   padding-inline: 1.4rem;
   font-size: 1.05rem;
+}
+
+.fb-preview {
+  justify-self: start;
+  width: 100%;
+  max-width: 340px;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 10px 24px rgb(26 42 58 / 10%);
+}
+
+.fb-preview iframe {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: 380px;
+  border: 0;
 }
 
 .tiktok-note {
