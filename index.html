@@ -78,63 +78,13 @@
             </div>
           </div>
           <div class="hero-visual">
-            <svg class="globe" viewBox="0 0 400 400" role="img" aria-label="Flight paths from South Africa to the United States and Ireland">
-              <defs>
-                <radialGradient id="ocean" cx="32%" cy="28%" r="75%">
-                  <stop offset="0%" stop-color="#2f6f8d" />
-                  <stop offset="55%" stop-color="#163a50" />
-                  <stop offset="100%" stop-color="#0b1c2b" />
-                </radialGradient>
-                <linearGradient id="trail" x1="0" y1="1" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#7ac3e6" />
-                  <stop offset="100%" stop-color="#ffffff" />
-                </linearGradient>
-                <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="3" result="b" />
-                  <feMerge>
-                    <feMergeNode in="b" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-                <clipPath id="disc">
-                  <circle cx="200" cy="200" r="172" />
-                </clipPath>
-              </defs>
-              <circle cx="200" cy="200" r="186" fill="none" stroke="#7ac3e6" stroke-width="6" opacity="0.35" />
-              <circle cx="200" cy="200" r="178" fill="none" stroke="#c5c9d4" stroke-width="2" opacity="0.7" />
-              <circle cx="200" cy="200" r="172" fill="url(#ocean)" />
-              <g clip-path="url(#disc)" fill="none" stroke="#7ac3e6" stroke-width="1.2" opacity="0.22">
-                <ellipse cx="200" cy="200" rx="70" ry="172" />
-                <ellipse cx="200" cy="200" rx="130" ry="172" />
-                <ellipse cx="200" cy="200" rx="172" ry="70" />
-                <ellipse cx="200" cy="200" rx="172" ry="130" />
-                <path d="M28 200h344M200 28v344" />
-              </g>
-              <g clip-path="url(#disc)" fill="#8fa0b3">
-                <path d="M62 92c22-18 48-14 62 6 10 16 8 38-2 54-8 14-22 28-20 46 2 14-10 28-24 26-16-2-22-22-18-36 4-16-4-28-12-40-8-14-4-38 14-56z" />
-                <path d="M198 86c18-8 36-2 44 14 6 12 4 22-4 30-10 8-8 20 2 26 8 6 6 18-4 22-14 6-30-2-38-16-8-16-16-28-14-44 2-14 6-26 14-32z" />
-                <path d="M208 118c16-4 34 10 38 28 6 22 2 44-4 64-4 16 4 34-6 48-12 16-32 22-46 12-12-8-14-26-8-38 8-16 4-32-2-46-6-16 4-32 10-44 6-12 10-22 18-24z" />
-                <path d="M168 78c8-4 16 0 18 8 2 8-4 12-10 12-8 0-12-6-8-20z" />
-              </g>
-              <g filter="url(#glow)" fill="none" stroke="url(#trail)" stroke-width="3.5" stroke-linecap="round">
-                <path d="M218 268 C 120 250, 70 190, 92 148" />
-                <path d="M218 268 C 170 210, 158 130, 176 108" />
-              </g>
-              <g fill="#7ac3e6" stroke="#eef6fa" stroke-width="2">
-                <circle cx="218" cy="268" r="6" />
-                <circle cx="92" cy="148" r="6" />
-                <circle cx="176" cy="108" r="6" />
-              </g>
-              <g fill="#eef6fa">
-                <path transform="translate(118 188) rotate(-28)" d="M0 0 l16 5-16 5 3-5z" />
-                <path transform="translate(168 168) rotate(-72)" d="M0 0 l16 5-16 5 3-5z" />
-              </g>
-              <g fill="#eef6fa" font-family="Outfit, sans-serif" font-size="13" font-weight="700">
-                <text x="230" y="286">South Africa</text>
-                <text x="28" y="138">United States</text>
-                <text x="188" y="98">Ireland</text>
-              </g>
-            </svg>
+            <img
+              class="globe-photo"
+              src="assets/placement-globe.png"
+              alt="Globe showing placement routes from South Africa to the United States and Ireland"
+              width="820"
+              height="799"
+            />
             <p class="route-label">Seasonal agricultural placement</p>
             <ul class="route">
               <li>
@@ -174,7 +124,17 @@
         <ul class="cards">
           <li>
             <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="16" cy="16" r="7" fill="#7ac3e6" /><circle cx="32" cy="16" r="7" fill="#8fa0b3" /><path d="M6 40c1-8 6-12 10-12s9 4 10 12M22 40c1-8 6-12 10-12s9 4 10 12" fill="none" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" /></svg>
+              <svg viewBox="0 0 80 80">
+                <rect width="80" height="80" rx="20" fill="#d7eef8" />
+                <circle cx="26" cy="24" r="9" fill="#1a2a3a" />
+                <circle cx="54" cy="24" r="9" fill="#1a2a3a" />
+                <path d="M10 56c1-12 8-18 16-18s15 6 16 18" fill="#7ac3e6" />
+                <path d="M38 56c1-12 8-18 16-18s15 6 16 18" fill="#8fa0b3" />
+                <path d="M28 48c4 4 10 6 14 0" fill="none" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" />
+                <rect x="47" y="40" width="22" height="26" rx="3" fill="#fff" stroke="#1a2a3a" stroke-width="2" />
+                <path d="M52 48h12M52 54h12M52 60h8" stroke="#7ac3e6" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M53 53l3 3 6-7" fill="none" stroke="#1a2a3a" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
             </span>
             <h3>Recruitment &amp; matching</h3>
             <p>
@@ -186,7 +146,20 @@
           </li>
           <li>
             <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="3" fill="#7ac3e6" /><rect x="16" y="12" width="16" height="12" rx="2" fill="#fff" /><circle cx="24" cy="18" r="4" fill="#8fa0b3" /><path d="M16 30h16M16 36h10" stroke="#1a2a3a" stroke-width="2.5" stroke-linecap="round" /></svg>
+              <svg viewBox="0 0 80 80">
+                <rect width="80" height="80" rx="20" fill="#d7eef8" />
+                <rect x="14" y="16" width="32" height="48" rx="4" fill="#1a2a3a" />
+                <rect x="18" y="20" width="24" height="40" rx="2" fill="#7ac3e6" />
+                <rect x="22" y="26" width="16" height="14" rx="2" fill="#fff" />
+                <circle cx="30" cy="33" r="4" fill="#8fa0b3" />
+                <path d="M22 46h16M22 52h12" stroke="#1a2a3a" stroke-width="2.2" stroke-linecap="round" />
+                <g transform="translate(44 28)">
+                  <path d="M4 14c10-4 18-2 24 4-8 2-16 2-24 0z" fill="#8fa0b3" />
+                  <path d="M22 8l10 4-8 3-2 8-4-7z" fill="#1a2a3a" />
+                </g>
+                <circle cx="58" cy="56" r="12" fill="#fff" stroke="#1a2a3a" stroke-width="2" />
+                <path d="M53 56l4 4 7-8" fill="none" stroke="#1a2a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </span>
             <h3>Visa preparation &amp; DS-160</h3>
             <p>
@@ -197,7 +170,16 @@
           </li>
           <li>
             <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M8 40V18L24 8l16 10v22" fill="#7ac3e6" /><path d="M8 40h32" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" /><rect x="20" y="26" width="8" height="14" fill="#fff" /><path d="M14 26h6M28 26h6M14 32h6M28 32h6" stroke="#1a2a3a" stroke-width="2" /></svg>
+              <svg viewBox="0 0 80 80">
+                <rect width="80" height="80" rx="20" fill="#d7eef8" />
+                <path d="M12 68h56" stroke="#8fa0b3" stroke-width="4" stroke-linecap="round" />
+                <path d="M16 68V36L40 16l24 20v32" fill="#7ac3e6" />
+                <path d="M16 36L40 16l24 20" fill="none" stroke="#1a2a3a" stroke-width="2.4" stroke-linejoin="round" />
+                <rect x="34" y="46" width="12" height="22" fill="#fff" />
+                <path d="M22 44h10M48 44h10M22 52h10M48 52h10" stroke="#1a2a3a" stroke-width="2.5" />
+                <path d="M28 22h24" stroke="#1a2a3a" stroke-width="3" stroke-linecap="round" />
+                <circle cx="40" cy="22" r="3" fill="#1a2a3a" />
+              </svg>
             </span>
             <h3>Consulate processing support</h3>
             <p>
