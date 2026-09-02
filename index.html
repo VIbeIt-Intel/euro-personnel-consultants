@@ -18,12 +18,33 @@
     />
     <link rel="preload" as="image" href="assets/logo.webp" type="image/webp" />
     <link rel="preload" as="image" href="assets/placement-globe.webp" type="image/webp" />
-    <link rel="stylesheet" href="styles.css?v=qa1" />
+    <link rel="stylesheet" href="styles.css?v=qa2" />
     <script>
-      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      (function () {
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        if (location.hash) return;
+        var pinned = true;
+        function unpin() {
+          pinned = false;
+        }
+        ["wheel", "touchstart", "keydown", "pointerdown"].forEach(function (type) {
+          window.addEventListener(type, unpin, { capture: true, passive: true, once: true });
+        });
+        function stayTop() {
+          if (pinned && window.scrollY) window.scrollTo(0, 0);
+        }
+        window.addEventListener("scroll", stayTop, { passive: true });
+        document.addEventListener("DOMContentLoaded", stayTop);
+        window.addEventListener("load", stayTop);
+        window.setTimeout(function () {
+          window.removeEventListener("scroll", stayTop);
+          pinned = false;
+        }, 2500);
+      })();
     </script>
   </head>
   <body>
+    <span id="top"></span>
     <header class="top">
       <div class="top-bar">
         <a class="brand" href="#top">
@@ -63,7 +84,7 @@
     </header>
     <div class="nav-overlay" id="nav-overlay" hidden></div>
 
-    <main id="top">
+    <main>
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-copy">
@@ -384,7 +405,7 @@
             data-href="https://www.facebook.com/profile.php?id=100093904718721"
             width="340"
             height="520"
-            loading="lazy"
+            tabindex="-1"
             scrolling="no"
             allow="encrypted-media; picture-in-picture"
           ></iframe>
@@ -465,7 +486,6 @@
           if (window.matchMedia("(min-width: 800px)").matches) setOpen(false);
         });
       })();
-      if (!location.hash) window.scrollTo(0, 0);
       (function () {
         var box = document.getElementById("fb-preview");
         var frame = document.getElementById("fb-page");
@@ -516,19 +536,30 @@
           }
         }
 
-        if ("IntersectionObserver" in window) {
+        frame.addEventListener("load", function () {
+          try {
+            frame.blur();
+          } catch (err) {}
+        });
+
+        function watchWhenVisible() {
+          if (!("IntersectionObserver" in window)) {
+            startWatching();
+            return;
+          }
           var io = new IntersectionObserver(
             function (entries) {
               if (!entries[0] || !entries[0].isIntersecting) return;
               io.disconnect();
               startWatching();
             },
-            { rootMargin: "280px 0px" }
+            { rootMargin: "80px 0px", threshold: 0.01 }
           );
           io.observe(box);
-        } else {
-          startWatching();
         }
+
+        if (document.readyState === "complete") watchWhenVisible();
+        else window.addEventListener("load", watchWhenVisible);
       })();
     </script>
   </body>
