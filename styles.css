@@ -18,6 +18,15 @@ html {
   scroll-padding-top: 5.5rem;
 }
 
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 body {
   font-family: Outfit, "Segoe UI", sans-serif;
   color: var(--ink);
